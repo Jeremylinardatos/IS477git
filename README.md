@@ -1,4 +1,4 @@
-<h1>How Weather Conditions Affect Home Runs in Wrigley Field<h1></h1>
+<h1>How Weather Conditions Affect Batting in Wrigley Field<h1></h1>
 
 <h2>Contributors: Jeremy Linardatos & Addison Naylor<h2></h2>
 
