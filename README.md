@@ -1,9 +1,9 @@
-<h2>How Weather Conditions Affect Home Runs in Wrigley Field<h2></h2>
+<h1>How Weather Conditions Affect Home Runs in Wrigley Field<h1></h1>
 
-<h1>Contributors: Jeremy Linardatos & Addison Naylor<h1></h1>
+<h2>Contributors: Jeremy Linardatos & Addison Naylor<h2></h2>
 
 
-<h1>Project Summary:<h1></h1> 
+<h2>Project Summary:<h2></h2> 
 Our project mixes the world’s most famous sports and weather data to conclude what type of impact weather conditions have on the sport and if so, what steps should be taken to adjust for this. For this project, our chosen sport is America’s pastime: baseball. Baseball has a long history of intricate data analysis. From exit velocities on home runs to on base percentages, everything in baseball is tracked at a microscopic level. Being that both of us are born and raised in Illinois, we share a favorite team of the Chicago Cubs. When you think of Chicago, you think of the Cubs, but you also think of the ‘Windy City.’ It’s no secret that weather can have an impact on sports performance. From a windy and cold day, to a hot and dry day, performance can drastically change. For example, when wind is blowing out of the park and when the temperature is warmer, the ball tends to travel further, whereas the opposite has a negative effect on ball flight. Because of this discrepancy, for this project we decided to integrate these two areas to see what impact weather has on performance. 
 
 Our definitive research question is:  Should managers, pitchers, and batters make adjustments to their play style based on the day’s weather, or is its effect not significant enough to matter?
@@ -17,9 +17,9 @@ After loading in our datasets, we performed various cleaning tasks to prepare fo
 
 With a completely merged dataset, we now began to run some analysis. We created graphs to show the visual impact of wind direction and temperature on hit distance. Ultimately, our graphs showed little correlation between these, showing little to no impact on hit distance. To confirm this, we also created a heat map. Our largest correction came between wind speed and hit distance, but still at a measly 0.24. So, ultimately we conclude that there is not a substantial enough impact from wind in Wrigley Field to warrant players or managers making adjustments to their play style. 
 
-<h1>Data Profile:<h1></h1>
+<h2>Data Profile:<h2></h2>
 
-Dataset #1 | Home Run Data: 
+<h3>Dataset #1 | Home Run Data:<h3></h3>
 
 Our home run dataset comes from Baseball Savant’s Statcast Search feature. Statcast is the premier pitch-by-pitch data collector and is used by all thirty MLB teams to collect extremely detailed information about every event (usually every pitch) in a ballgame. Knowing this, we feel that we can trust the data’s accuracy. This feature essentially allows us to select the specific data we are looking for, in our case, home runs in Wrigley Field during the regular season last year. 
 
@@ -48,7 +48,7 @@ The raw home run data set can be found within our repository in the data folder 
 
 Lastly, while there is not a lot of information directly on the website regarding metadata and provenance, because of the proximity Statcast works with the MLB, we don’t have too many concerns in this respect. They do provide a link to the process data collection goes through if it is not directly observed/measured within the game. 
 
-Dataset #2 | Player Specific Batting Data:
+<h3>Dataset #2 | Player Specific Batting Data:<h3>></h3>
 
 Our player specific batting data comes from Baseball Reference. Data on the site is provided by Sportsradar, which is the official stats partner of the MLB, so once again we feel confident in the accuracy of the data. Much like the home run dataset, the batting dataset is provided in a tabular format on their website and is already presorted by player for last season. 
 
@@ -67,7 +67,7 @@ Lastly, in terms of metadata, some more work could be done on their end. For com
 The raw data can be found within our repository under the data folder called batting.csv. 
 
 
-Dataset #3 | Wind Data 
+<h3>Dataset #3 | Wind Data<h3></h3>
 
 This last piece of data is the strangest of the bunch, especially in terms of formatting. Our wind data comes from the National Oceanic and Atmospheric Administration, so it really doesn’t get any more officially verifiable than that. The data is collected at a site 2.75 miles offshore from the City of Chicago in Lake Michigan. 
 
@@ -85,7 +85,7 @@ In terms of acquisition, this is once again a direct download to CSV. There is n
 Our wind data can be found in the data folder under weather.avg, which is a text file that we will later properly convert to a usable CSV to be joined on date with the other datasets. 
 
 
-<h1>Data Quality:<h1></h1>
+<h2>Data Quality:<h2></h2>
 Overall, we feel quite pleased with our data quality across the three datasets. 
 
 Our home run dataset is of extremely high quality. Looking at Baseball Savant’s embedded search feature, which we used to find our data, there is a luxury of very detailed data available to use. We feel confident in the data’s accuracy as it comes straight from MLB Advanced Media, so there is no real ‘middle man’ between the data collection and compiling. Additionally, this data is collected using the Statcast system. This system uses highly advanced cameras and radars to collect data across each of the MLB’s 30 stadiums. While extensive metadata or provenance data is not provided, because of the close proximity to the MLB itself we feel that it is accurate. We do believe, however, that more work could be done in this respect. There is a little blurb about how some data might be calculated based on available technology and how tracking was done. Additionally, a dictionary is provided and a video to a tutorial on how to use the search feature. Beyond this, there is not much information provided on the data. We would like to see more information provided, but with sports data we also understand that much of it is observed observationally. Further, we were actually pleased with the data with respect to the data quality pillars. The data was accurate as it was collected using the latest available technology. However, we do have some concerns with inconsistencies in terms of attributes. For example, both launch speed and exit velocity semantically represent the same thing, however, under Baseball Savant’s search feature it is represented under EV (MPH), while under the imported CSV file it is under launch_speed. The completeness of the data is also in good standing; none of the attributes used for this project were found to be incomplete. Seeing as this data is from last year and unlikely to be updated, unless new formulas are implemented, we have no concerns with timeliness. Additionally, consistency seems to be upheld as there are not any clear schema or semantic violations other than the previously mentioned issues of inconsistency in column naming between the actual site and imported CSV file (also apparent with launch angle and hit distance columns).  
@@ -94,11 +94,11 @@ Our batting dataset is also of extreme high quality. Once again, as the data is 
 
 Lastly, we look at our wind dataset quality. If there is a dataset that we have the least concerns with in terms of trustworthiness, it’s this one. There is a plethora of information provided by NOAA and the Great Lakes Environmental Research Laboratory regarding recording and collection processes, so believe this data to be accurate. Now, in terms of formatting, this data presents the largest concern. The data is provided in an .avg file, which is not a real file type, but rather reflective of the fact that the data is a collection of daily averages. Information is provided regarding attributes, albeit limited, but it is useful in the quality of data. Some overall summary statistics are also provided, but they are not relevant for our work, and further, they will present a problem later in terms of our cleaning. We also have some concerns regarding the recording of the data. While we believe the data to be entirely accurate, as extensive information is provided regarding the collection process, we do notice that there are days that have a strange amount of records used to calculate a daily average. There doesn’t seem to be an explanation nor an obvious pattern for this inconsistency. Lastly, consistency and timeliness. We’ve already discussed some potential consistency issues with the number of observations used to record daily averages, but outside of this no rules are violated and no issues present themselves. Timeliness is not a concern, this data was promptly updated, and once again is from last year, so we don't have real concerns with it changing. The data for daily averages was calculated (for most days) using an aggregate average of observations recorded every two minutes. However, one last inconsistency we found after manually going through old data, is that there is some rollover. Data for 2 minute averages (which is ultimately what is used to calculate daily averages) begins recording at 11:52 P.M. the day prior to recording and ends at 11:50 P.M. on the day of recording. For example, if the observed day is May 1, 2026, data for that day will begin recording at 11:52 PM April 30 and end recording at 11:50 PM May 1. This is a bit odd as we are including data from a previous day in our overall daily recording, but in the grand scheme of things, and considering this is a consistent recording process, this isn’t a huge concern, just something to be aware of. 
 
-<h1>Data Cleaning:<h1></h1>
+<h2>Data Cleaning:<h2></h2>
 
 As expected, all of our datasets had to go through some type of cleaning in order to make it fit for use and ready to integrate with each of the other datasets. 
 
-Home run dataset (Baseball Savant Statcast): Prior to even doing any cleaning work, we needed to use pybaseball to import our data properly and verify integrity using SHA-256. Within our larger imported dataset, we filtered down to just home runs hit in Wrigley Field. We also had to reconfigure the column representing player names to format it in a merge friendly way. This dataset included extensive information about home runs hit in Wigley Field during the 2025 regular season. 118 attributes were provided for each home run hit, however, for our analysis we filtered down to only 6 attributes:
+<h3>Home run dataset (Baseball Savant Statcast):<h3></h3> Prior to even doing any cleaning work, we needed to use pybaseball to import our data properly and verify integrity using SHA-256. Within our larger imported dataset, we filtered down to just home runs hit in Wrigley Field. We also had to reconfigure the column representing player names to format it in a merge friendly way. This dataset included extensive information about home runs hit in Wigley Field during the 2025 regular season. 118 attributes were provided for each home run hit, however, for our analysis we filtered down to only 6 attributes:
 game_date 
 player_name 
 launch_speed 
@@ -109,13 +109,13 @@ pitch_type
 After filtering down our dataset, we explored missing values and data types. We did not identify any missing values and confirmed that each attribute was in its correct data type; no explicit or implicit missing values were found. This dataset was now ready to go.
 
 
-Batting dataset (Baseball Reference Player Standard Batting Table): As with the prior dataset, instead of directly downloading as a CSV from the website’s feature, we used pybaseball to scrape the data and then verified integrity. We then filtered down to only 4 attributes that were necessary for this analysis. 
+<h3>Batting dataset (Baseball Reference Player Standard Batting Table):<h3></h3> As with the prior dataset, instead of directly downloading as a CSV from the website’s feature, we used pybaseball to scrape the data and then verified integrity. We then filtered down to only 4 attributes that were necessary for this analysis. 
 Name
 OBP 
 SLG
 After filtering, we once again searched for missing values and looked at data types. We did identify a number of missing values, however, these are presumably for those players who do not have enough at bats to warrant calculating batting average statistics. If these are an issue, they will present themselves later in the integration process and we will address it there. After looking at data types, we confirmed that all data types are accurate for the attributes, confirming there are no issues there. 
 
-Wind dataset (NOAA Great Lakes Environmental Research Laboratory data): This data came in a bit of an odder format, so its process of importation looked slightly different from the others. We read in the data as a CSV file, however, we had to skip the first 11 rows as they included summary statistics (max wind speeds, etc.) that were irrelevant to our project and would’ve called issues with integration. Additionally, in order to correctly format the data, we had to use a regex pattern to separate. After successfully importing the data, we were left with these attributes:
+<h3>Wind dataset (NOAA Great Lakes Environmental Research Laboratory data):<h3></h3> This data came in a bit of an odder format, so its process of importation looked slightly different from the others. We read in the data as a CSV file, however, we had to skip the first 11 rows as they included summary statistics (max wind speeds, etc.) that were irrelevant to our project and would’ve called issues with integration. Additionally, in order to correctly format the data, we had to use a regex pattern to separate. After successfully importing the data, we were left with these attributes:
 DOY → Day of year 
 WS → Wind speed 
 WD → Wind direction 
@@ -127,9 +127,9 @@ We opted to drop the n column, as it just contains how many observations were ob
 After dropping this column, we searched for missing values and looked at data types. We did find one missing value for each attribute that could be attributed to the fact there was an extra place holder observation for leap years of which 2025 is not. Looking at the data types, everything seems to align and match what we would expect. We also verified integrity using SHA256 once again. To prepare for integration, we had to do some further cleaning. We converted our DOY column to a usable date column using datetime. Additionally, we did the same with our home run data game_date column. After formatting the dates properly in both datasets, we were able to properly integrate. 
 
 
-Cleaning with Merging: Prior to merging our first two datasets together (home runs and batting), we need to do just a bit more cleaning. For the batting dataset, we had to strip the player column to lowercase for merging purposes. Additionally, during the merge process, we dropped unnecessary or duplicate columns (Ex: No need for two columns representing names). To confirm successful integration we searched for missing values and found none. 
+<h3>Cleaning with Merging:<h3></h3> Prior to merging our first two datasets together (home runs and batting), we need to do just a bit more cleaning. For the batting dataset, we had to strip the player column to lowercase for merging purposes. Additionally, during the merge process, we dropped unnecessary or duplicate columns (Ex: No need for two columns representing names). To confirm successful integration we searched for missing values and found none. 
 
-<h1>Findings:<h1></h1>
+<h2>Findings:<h2></h2>
  Ultimately the goal was to identify if there was a significant relationship between wind and batting, quantify this relationship, and suggest if players and managers should adjust their playstyle. 
 
 After properly integrating our datasets, we created a set of visualizations to show the relationship between our weather and baseball data. We created two graphs, to identify the relationship between air temperature and wind direction with hit distance. Ultimately, both of these visuals provided inconclusive evidence to quantify wind having a significant effect on the actual play. 
@@ -137,7 +137,7 @@ After properly integrating our datasets, we created a set of visualizations to s
 To confirm the idea that wind does not have a significant effect, we created a correlation heat map to get numerical confirmation of this. Our heatmap returned with largely the same results. There seemed to be little correlation between wind speed, wind direction, and air temperature, with launch speed, launch angle, and hit distance. Our largest correlation came in at a measly 0.24 between wind speed and hit distance. So, perhaps wind speed has a minor impact on the distance balls are hit, but other than this we can not definitively conclude that there is a significant relationship here. Because of this, we can’t truly recommend managers and players make any changes to their style of play. If we see little to no impact on the game, it’s hard to say that anything need be done to combat it.
 
 
-<h1>Future Work:<h1></h1>
+<h2>Future Work:<h2></h2>
 
 There’s a lot to be gleaned from this project and going forward. First and foremost, we learned a lot about the process that goes into creating a pristine pipeline, from data acquisition to visualization. In lower level courses or simpler projects, most of the work is done on the analysis side, and not much emphasis is given to the actual curation, reproduction, and management of the data. Through each step, we learned the elevated importance of constantly documenting our steps. In the professional world, if someone were to want to reproduce our work to better understand it or build off of it, it is critical that not only outline the steps that we took within our actual analysis, but also that of the prework, such as acquisition, cleaning, and more. 
 
@@ -149,7 +149,7 @@ There is also a lot to build off of here. Our analysis did not reveal any signif
 
 
 
-<h1>Challenges:<h1></h1>
+<h2>Challenges:<h2></h2>
 
 There were a number of challenges throughout this entire process. The largest challenges fell in the earlier stages of the project. Data acquisition proved to be a bit more difficult than expected. In past projects, we would’ve likely just directly downloaded our data as CSV files and went on with analysis. However, knowing what we’ve learned from this course, we opted to go a different route, one that would be better for transparency and reproducibility. We had to grow through a lot of documentation within a python package, pybaseball, that is specifically designed for baseball data. Using this package, we were able to properly retrieve data from our desired sources. After doing this we did still have to go through some data cleaning steps that were complex in some ways. Further, we had some challenges with verifying this data was correct. Meaning, we had to figure out how to use SHA256 to ensure that we properly imported our data. This concept was a bit new to us, so it took a second to wrap our heads around and write code to properly assert this within our scripts. 
 
