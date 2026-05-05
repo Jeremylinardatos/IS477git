@@ -138,10 +138,15 @@ After dropping this column, we searched for missing values and looked at data ty
 <h2>Findings:</h2>
  Ultimately the goal was to identify if there was a significant relationship between wind and batting, quantify this relationship, and suggest if players and managers should adjust their playstyle. 
 
-After properly integrating our datasets, we created a set of visualizations to show the relationship between our weather and baseball data. We created two graphs, to identify the relationship between air temperature and wind direction with hit distance. Ultimately, both of these visuals provided inconclusive evidence to quantify wind having a significant effect on the actual play. 
+After properly integrating our datasets, we created a set of visualizations to show the relationship between our weather and baseball data. We created two graphs, to identify the relationship between air temperature and wind direction with hit distance. Ultimately, both of these visuals provided inconclusive evidence to quantify wind having a significant effect on the actual play.
+
+![hit distance vs temp](figures/hit-distance-vs-temp.jpg)
+
+![hit distance vs wind](figures/hit-distance-vs-wind.jpg)
 
 To confirm the idea that wind does not have a significant effect, we created a correlation heat map to get numerical confirmation of this. Our heatmap returned with largely the same results. There seemed to be little correlation between wind speed, wind direction, and air temperature, with launch speed, launch angle, and hit distance. Our largest correlation came in at a measly 0.24 between wind speed and hit distance. So, perhaps wind speed has a minor impact on the distance balls are hit, but other than this we can not definitively conclude that there is a significant relationship here. Because of this, we can’t truly recommend managers and players make any changes to their style of play. If we see little to no impact on the game, it’s hard to say that anything need be done to combat it.
 
+![heatmap](figures/corr_heatmap.jpg)
 
 <h2>Future Work:</h2>
 
