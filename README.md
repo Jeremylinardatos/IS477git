@@ -24,21 +24,22 @@ With a completely merged dataset, we now began to run some analysis. We created 
 Our home run dataset comes from Baseball Savant’s Statcast Search feature. Statcast is the premier pitch-by-pitch data collector and is used by all thirty MLB teams to collect extremely detailed information about every event (usually every pitch) in a ballgame. Knowing this, we feel that we can trust the data’s accuracy. This feature essentially allows us to select the specific data we are looking for, in our case, home runs in Wrigley Field during the regular season last year. 
 
 When using this feature, we are presented with data in an interactive tabular format that we can explore further, such as links to video clips of the actual home run, pitch placement, and more. For our purposes, we have filtered down to these attributes to be shown on the websites search feature: 
-Rk → Arbitrary index number 
-Player → Player name (home run hitter)
-Team → Team the player is on (home run hitter)
-Result → Result of the play (these are all home run as we filtered it this way)
-Game Date → Date the game was played on
-Vs. → Team the player was playing against 
-Pitch (MPH) → Pitch speed 
-Spin Rate (RPM) → Rotations per minute of pitch 
-Pitch Type → Type of pitch thrown
-EV (MPH) → Exit velocity of hit 
-LA (°) → Launch angle of hit 
-Dist (ft) → Distance of hit 
-full_name → This was a variable we created in the dataset after cleaning 
 
-While selecting certain features to be shown on the website will shorten the amount of attributes shown on its interface, when downloading this data as a CSV file, all the attributes will be present. Due to this, we had to filter down to the attributes we deemed important for this project after importing (those included in our analysis are highlighted in green above). 
+* Rk → Arbitrary index number 
+* <mark>Player → Player name (home run hitter)</mark>
+* Team → Team the player is on (home run hitter)
+* Result → Result of the play (these are all home run as we filtered it this way)
+* <mark>Game Date → Date the game was played on</mark>
+* Vs. → Team the player was playing against 
+* Pitch (MPH) → Pitch speed 
+* Spin Rate (RPM) → Rotations per minute of pitch 
+* <mark>Pitch Type → Type of pitch thrown</mark>
+* <mark>EV (MPH) → Exit velocity of hit</mark>
+* <mark>LA (°) → Launch angle of hit</mark>
+* <mark>Dist (ft) → Distance of hit</mark>
+* <mark>full_name → This was a variable we created in the dataset after cleaning</mark> 
+
+While selecting certain features to be shown on the website will shorten the amount of attributes shown on its interface, when downloading this data as a CSV file, all the attributes will be present. Due to this, we had to filter down to the attributes we deemed important for this project after importing (those included in our analysis are highlighted above). 
 
 Each row within this dataset represents a singular home run. The attributes mainly focus on the actual hit itself, but basic identifying data is included, such as name and date, which is also important for integration later in the project. 
 
@@ -55,10 +56,10 @@ Our player specific batting data comes from Baseball Reference. Data on the site
 The dataset includes every player that took an at bat last season. Each row in the dataset represents an individual player. With this, in each row either an aggregate or average of that player’s stats is provided. For example, something like home runs for the season would be totaled, but on the other hand on base percentage is averaged. Having attributes such as the player name will allow us to integrate this dataset with our other data later on in our project. 
 
 While once again in our project we filter down to only the relevant attributes we need to complete our analysis, the raw data has a number of attributes. A link to the glossary is provided here. The attributes we eventually use in our filtered dataset for analysis include:
-Player → Name of the player
-WAR → Wins above replacement 
-OBP → On base percentage 
-SLG → Slug percentage 
+
+* Player → Name of the player
+* OBP → On base percentage
+* SLG → Slug percentage 
 
 The acquisition process for this dataset is similar to that of the last. Although once again we are able to directly download our data using a function on the website, we are opting to use the pybaseball package to reflect the best reproduction process. Baseball reference does not provide an API as most of the data on their site is sold by third parties to them and APIs are not part of their business model. In addition, we are making sure to stay within the proper bounds to ensure that we don’t violate any guidelines. 
 
@@ -74,9 +75,10 @@ This last piece of data is the strangest of the bunch, especially in terms of fo
 The file format is a bit strange in that it comes in as a .avg file, which is really a genuine supported file type; it’s called that more so because it is a file with a list of averages. Each row in this dataset represents the average data for a singular day in 2025. 
 
 This dataset does not have many attributes and therefore does not have an extensive glossary. There is a bit of information within the actual file itself that explains each attribute.
-WS=Wind Speed (m/s)
-WD=Wind Dir (deg)
-AT=Air Temp (C)
+
+* WS=Wind Speed (m/s)
+* WD=Wind Dir (deg)
+* AT=Air Temp (C)
 
 Extensive information regarding metadata is provided in a separate section on the NOAA Great Lakes Environmental Research Laboratory website. This includes information regarding the site itself (site elevation, air temperature height, etc.), equipment (sensors, processors, etc.), and collection procedures. 
 
@@ -98,29 +100,33 @@ Lastly, we look at our wind dataset quality. If there is a dataset that we have 
 
 As expected, all of our datasets had to go through some type of cleaning in order to make it fit for use and ready to integrate with each of the other datasets. 
 
-<h3>Home run dataset (Baseball Savant Statcast):<h3></h3> Prior to even doing any cleaning work, we needed to use pybaseball to import our data properly and verify integrity using SHA-256. Within our larger imported dataset, we filtered down to just home runs hit in Wrigley Field. We also had to reconfigure the column representing player names to format it in a merge friendly way. This dataset included extensive information about home runs hit in Wigley Field during the 2025 regular season. 118 attributes were provided for each home run hit, however, for our analysis we filtered down to only 6 attributes:
-game_date 
-player_name 
-launch_speed 
-launch_angle 
-hit_distance_sc 
-pitch_type 
+<h3>Home run dataset (Baseball Savant Statcast):</h3> Prior to even doing any cleaning work, we needed to use pybaseball to import our data properly and verify integrity using SHA-256. Within our larger imported dataset, we filtered down to just home runs hit in Wrigley Field. We also had to reconfigure the column representing player names to format it in a merge friendly way. This dataset included extensive information about home runs hit in Wigley Field during the 2025 regular season. 118 attributes were provided for each home run hit, however, for our analysis we filtered down to only 6 attributes:
+
+* game_date 
+* player_name 
+* launch_speed 
+* launch_angle 
+* hit_distance_sc 
+* pitch_type 
 
 After filtering down our dataset, we explored missing values and data types. We did not identify any missing values and confirmed that each attribute was in its correct data type; no explicit or implicit missing values were found. This dataset was now ready to go.
 
 
-<h3>Batting dataset (Baseball Reference Player Standard Batting Table):<h3></h3> As with the prior dataset, instead of directly downloading as a CSV from the website’s feature, we used pybaseball to scrape the data and then verified integrity. We then filtered down to only 4 attributes that were necessary for this analysis. 
-Name
-OBP 
-SLG
+<h3>Batting dataset (Baseball Reference Player Standard Batting Table):</h3> As with the prior dataset, instead of directly downloading as a CSV from the website’s feature, we used pybaseball to scrape the data and then verified integrity. We then filtered down to only 3 attributes that were necessary for this analysis.
+
+* Name
+* OBP 
+* SLG
+
 After filtering, we once again searched for missing values and looked at data types. We did identify a number of missing values, however, these are presumably for those players who do not have enough at bats to warrant calculating batting average statistics. If these are an issue, they will present themselves later in the integration process and we will address it there. After looking at data types, we confirmed that all data types are accurate for the attributes, confirming there are no issues there. 
 
-<h3>Wind dataset (NOAA Great Lakes Environmental Research Laboratory data):<h3></h3> This data came in a bit of an odder format, so its process of importation looked slightly different from the others. We read in the data as a CSV file, however, we had to skip the first 11 rows as they included summary statistics (max wind speeds, etc.) that were irrelevant to our project and would’ve called issues with integration. Additionally, in order to correctly format the data, we had to use a regex pattern to separate. After successfully importing the data, we were left with these attributes:
-DOY → Day of year 
-WS → Wind speed 
-WD → Wind direction 
-AT → Air temperature 
-n → Number of observations 
+<h3>Wind dataset (NOAA Great Lakes Environmental Research Laboratory data):</h3> This data came in a bit of an odder format, so its process of importation looked slightly different from the others. We read in the data as a CSV file, however, we had to skip the first 11 rows as they included summary statistics (max wind speeds, etc.) that were irrelevant to our project and would’ve called issues with integration. Additionally, in order to correctly format the data, we had to use a regex pattern to separate. After successfully importing the data, we were left with these attributes:
+
+* DOY → Day of year 
+* WS → Wind speed 
+* WD → Wind direction 
+* AT → Air temperature 
+* n → Number of observations 
 
 We opted to drop the n column, as it just contains how many observations were observed in one day, which is not very relevant to our project and would create unnecessary noise in the data. 
 
@@ -129,7 +135,7 @@ After dropping this column, we searched for missing values and looked at data ty
 
 <h3>Cleaning with Merging:<h3></h3> Prior to merging our first two datasets together (home runs and batting), we need to do just a bit more cleaning. For the batting dataset, we had to strip the player column to lowercase for merging purposes. Additionally, during the merge process, we dropped unnecessary or duplicate columns (Ex: No need for two columns representing names). To confirm successful integration we searched for missing values and found none. 
 
-<h2>Findings:<h2></h2>
+<h2>Findings:</h2>
  Ultimately the goal was to identify if there was a significant relationship between wind and batting, quantify this relationship, and suggest if players and managers should adjust their playstyle. 
 
 After properly integrating our datasets, we created a set of visualizations to show the relationship between our weather and baseball data. We created two graphs, to identify the relationship between air temperature and wind direction with hit distance. Ultimately, both of these visuals provided inconclusive evidence to quantify wind having a significant effect on the actual play. 
