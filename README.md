@@ -174,3 +174,25 @@ In order to fully recreate our data analysis and obtain the same results we did,
 4. Open your favorite IDE’s terminal, navigate to the root directory of our cloned repository, and run the command “snakemake --cores n” where n is the number of cores you would like to use on the process. This is not a resource-intensive workflow, so one or two should be fine.
 5. Check output for hash mismatch errors, which indicate that either something about pybaseball has changed since this analysis, or something about the weather data you downloaded has changed (this is only if you downloaded the weather data yourself).
 6. Assuming no errors came up, you should have a figures folder containing the exact output visualizations we used for our analysis.
+
+<h2>References:</h2>
+
+LeDoux, J., & Schorr, M. (2026). pybaseball (Version 2.2.6) [Source code]. https://github.com/jldbc/pybaseball
+
+Matplotlib Development Team. (2025). Matplotlib (Version 3.10.8) [Source code]. https://github.com/matplotlib/matplotlib
+
+McKinney, W. (2010). Data structures for statistical computing in Python. In S. van der Walt & J. Millman (Eds.), Proceedings of the 9th Python in Science Conference (pp. 55–56). https://doi.org/10.25080/Majora-92bf1922-00a
+
+MLB Advanced Media, LP. (2025). MLB Statcast search. Baseball Savant. https://baseballsavant.com
+
+NOAA Great Lakes Environmental Research Laboratory. (2025). Chicago met data archive. https://glerl.noaa.gov/metdata/chi/archive/chi2025.04t.avg
+
+NumPy Developers. (2025). NumPy (Version 2.4.2) [Source code]. https://github.com/numpy/numpy
+
+Python Software Foundation. (2023). Python (Version 3.12.0) [Computer software]. https://www.python.org/
+
+Sports Reference LLC. (2025). 2025 Major League Baseball standard batting. Baseball-Reference.com. https://www.baseball-reference.com/leagues/majors/2025-standard-batting.shtml#all_players_standard_batting
+
+The pandas development team. (2026). pandas-dev/pandas: Pandas (v3.0.2). Zenodo. https://doi.org/10.5281/zenodo.19340003
+
+Waskom, M. L. (2024). Seaborn (Version 0.13.2) [Source code]. https://github.com/mwaskom/seaborn
