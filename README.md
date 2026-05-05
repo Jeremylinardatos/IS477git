@@ -165,17 +165,19 @@ In order to fully recreate our data analysis and obtain the same results we did,
 
 1. Clone our github repository onto your local machine. It contains all of our scripts, the raw weather data, and the Snakefile that ties it all together. If you would rather acquire the weather data yourself, it can be found at [this link](https://www.glerl.noaa.gov/metdata/chi/archive/chi2025.04t.avg). It will be checked against the dataset we used for this analysis using checksums.
 2. Install the required packages using Python’s typical package installation techniques (and install Python itself if you don’t have it). These might change over time, so for reproducibility’s sake, look into how to do this at [this link](https://packaging.python.org/en/latest/tutorials/installing-packages/) if you don’t know how (or just look it up) The packages required for our scripts are
-* pandas
-* matplotlib
-* seaborn
-* pybaseball
-* hashlib
-3. Install Snakemake using instructions found at [this link](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html) (if this link doesn’t work, you can just search something like “Snakemake installation instructions”). This is required so that you can run our Snakefile, which automatically runs all of the scripts in the correct order.
+* pandas v3.0.2
+* matplotlib v3.10.8
+* seaborn v0.13.2
+* pybaseball v2.2.6
+* hashlib (but this one is a base Python library, so you don't need to install it separately)
+3. Install Snakemake 9.20.0 using instructions found at [this link](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html) (if this link doesn’t work, you can just search something like “Snakemake installation instructions”). This is required so that you can run our Snakefile, which automatically runs all of the scripts in the correct order.
 4. Open your favorite IDE’s terminal, navigate to the root directory of our cloned repository, and run the command “snakemake --cores n” where n is the number of cores you would like to use on the process. This is not a resource-intensive workflow, so one or two should be fine.
 5. Check output for hash mismatch errors, which indicate that either something about pybaseball has changed since this analysis, or something about the weather data you downloaded has changed (this is only if you downloaded the weather data yourself).
 6. Assuming no errors came up, you should have a figures folder containing the exact output visualizations we used for our analysis.
 
 <h2>References:</h2>
+
+Köster, J. et al. (2024). Snakemake (Version 9.20.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.593048
 
 LeDoux, J., & Schorr, M. (2026). pybaseball (Version 2.2.6) [Source code]. https://github.com/jldbc/pybaseball
 
